@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoRoll - Smart Payroll System</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛠️ AutoRoll</h1>
+            <p>Smart Payroll, Fully On-Chain</p>
+            <div class="demo-notice" style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; border-radius: 8px; margin: 15px 0; color: #856404;">
+                <strong>🎯 Demo Mode:</strong> This is a fully functional demonstration of the AutoRoll payroll system. All interactions are simulated to showcase the complete user experience.
+            </div>
+            <div class="wallet-connection">
+                <button id="connectWallet" class="btn btn-primary">Connect Demo Wallet</button>
+                <span id="walletAddress" class="wallet-address"></span>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <button id="employerTab" class="tab-btn active" data-tab="employer">Employer Dashboard</button>
+            <button id="employeeTab" class="tab-btn" data-tab="employee">Employee Dashboard</button>
+        </nav>
+
+        <!-- Employer Dashboard -->
+        <div id="employer" class="tab-content active">
+            <div class="dashboard-section">
+                <h2>Contract Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Contract Balance</h3>
+                        <span id="contractBalance" class="stat-value">0 MAS</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Employees</h3>
+                        <span id="employeeCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Paid</h3>
+                        <span id="totalPaid" class="stat-value">0 MAS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <h2>Fund Contract</h2>
+                <div class="action-form">
+                    <input type="number" id="fundAmount" placeholder="Amount in MAS" step="0.001">
+                    <button id="fundBtn" class="btn btn-primary">Fund Contract</button>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <h2>Add Employee</h2>
+                <div class="action-form">
+                    <input type="text" id="employeeAddress" placeholder="Employee Wallet Address">
+                    <input type="number" id="employeeSalary" placeholder="Salary in MAS" step="0.001">
+                    <input type="number" id="paymentInterval" placeholder="Payment Interval (seconds)" value="2592000">
+                    <button id="addEmployeeBtn" class="btn btn-success">Add Employee</button>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <h2>Issue Bonus</h2>
+                <div class="action-form">
+                    <input type="text" id="bonusAddress" placeholder="Employee Wallet Address">
+                    <input type="number" id="bonusAmount" placeholder="Bonus Amount in MAS" step="0.001">
+                    <button id="issueBonusBtn" class="btn btn-warning">Issue Bonus</button>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <h2>Remove Employee</h2>
+                <div class="action-form">
+                    <input type="text" id="removeAddress" placeholder="Employee Wallet Address">
+                    <button id="removeEmployeeBtn" class="btn btn-danger">Remove Employee</button>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <h2>Start Autonomous Execution</h2>
+                <div class="action-form">
+                    <button id="startAutonomousBtn" class="btn btn-primary">Start Auto-Payments</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee Dashboard -->
+        <div id="employee" class="tab-content">
+            <div class="dashboard-section">
+                <h2>My Employment Info</h2>
+                <div class="action-form">
+                    <button id="checkStatusBtn" class="btn btn-primary">Check My Status</button>
+                </div>
+                <div id="employeeInfo" class="employee-info"></div>
+            </div>
+
+            <div class="dashboard-section">
+                <h2>Payment History</h2>
+                <div id="paymentHistory" class="payment-history">
+                    <p>Connect your wallet and check status to view payment history.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contract Deployment Section -->
+        <div class="dashboard-section">
+            <h2>Contract Deployment</h2>
+            <div class="action-form">
+                <input type="text" id="contractAddress" placeholder="Enter contract address (if already deployed)">
+                <button id="deployBtn" class="btn btn-secondary">Deploy New Contract</button>
+                <button id="connectContractBtn" class="btn btn-secondary">Connect to Existing</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Processing transaction...</p>
+    </div>
+
+    <div id="notifications" class="notifications"></div>
+
+    <script type="module" src="src/main.ts"></script>
+</body>
+</html>

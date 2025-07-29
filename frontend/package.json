@@ -1,0 +1,21 @@
+{
+  "name": "autoroll-frontend",
+  "version": "1.0.0", 
+  "description": "AutoRoll Frontend - Smart Payroll System",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build"
+  },
+  "dependencies": {
+    "web3": "^4.0.0",
+    "ethers": "^6.7.0"
+  },
+  "devDependencies": {
+    "vite": "^4.4.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "autoroll-smart-contract",
+  "version": "1.0.0",
+  "description": "AutoRoll Smart Contract for Massa Blockchain",
+  "main": "assembly/autoroll.ts",
+  "scripts": {
+    "build": "npm run asbuild:release",
+    "asbuild:debug": "asc assembly/autoroll.ts --target debug --exportRuntime --outDir build/debug",
+    "asbuild:release": "asc assembly/autoroll.ts --target release --exportRuntime --outDir build/release --optimize",
+    "test": "echo \"Tests coming soon...\""
+  },
+  "dependencies": {
+    "assemblyscript": "^0.27.0",
+    "@massalabs/massa-as-sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.27.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "targets": {
+    "debug": {
+      "outDir": "build/debug",
+      "textFile": "build/debug/autoroll.wat",
+      "binFile": "build/debug/autoroll.wasm",
+      "debug": true
+    },
+    "release": {
+      "outDir": "build/release", 
+      "textFile": "build/release/autoroll.wat",
+      "binFile": "build/release/autoroll.wasm",
+      "optimizeLevel": 3,
+      "shrinkLevel": 2
+    }
+  },
+  "options": {
+    "exportRuntime": true
+  }
+}
